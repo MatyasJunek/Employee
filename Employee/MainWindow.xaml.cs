@@ -16,6 +16,7 @@ using System.Text.RegularExpressions;
 
 namespace Employee
 {
+    //Zaměstnanci se ukládají do Listu
     public class Person
     {
         string _name;
@@ -231,7 +232,13 @@ namespace Employee
                 pass = false;
                 SalaryError.Content = "Plat obsahuje neplatné znaky";
             }
-          
+            if ((sender as TextBox).Text.Length < 5)
+            {
+                pass = false;
+                SalaryError.Content = "Neplatný plat";
+                return;
+            }
+
         }
 
         private void Education_LostFocus(object sender, RoutedEventArgs e)
