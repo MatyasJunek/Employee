@@ -28,39 +28,39 @@
         </Grid.RowDefinitions>
         <Label Content="Jméno" Grid.Column="1" Grid.Row="0"
                HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="15"/>
-        <Label x:Name="NameError" Grid.Column="2" Grid.Row="1" Foreground="Red"/>
+        <Label x:Name="NameError" Content ="{Binding NameErrorText}" Visibility="{Binding NameErrorVisible}" Grid.Column="2" Grid.Row="1" Foreground="Red"/>
         
         <Label Content="Příjmení" Grid.Column="3" Grid.Row="0"
                HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="15"/>
-        <Label x:Name="SurnameError" Grid.Column="4" Grid.Row="1" Foreground="Red"/>
+        <Label x:Name="SurnameError" Content ="{Binding SurnameErrorText}" Visibility="{Binding SurnameErrorVisible}" Grid.Column="4" Grid.Row="1" Foreground="Red"/>
 
         <Label Content="Rok" Grid.Column="1" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="15"/>
-        <Label x:Name="YearError" Grid.Column="2" Grid.Row="3" Foreground="Red"/>
+        <Label x:Name="YearError" Content ="{Binding YearErrorText}" Visibility="{Binding YearErrorVisible}" Grid.Column="2" Grid.Row="3" Foreground="Red"/>
         
         <Label Content="Vzdělání" Grid.Column="3" Grid.Row="2"
                HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="15"/>
-        <Label x:Name="EducationError" Grid.Column="4" Grid.Row="3" Foreground="Red"/>
+        <!--<Label x:Name="EducationError" Grid.Column="4" Grid.Row="3" Foreground="Red"/>-->
 
         <Label Content="Pozice" Grid.Column="1" Grid.Row="4"
                HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="15"/>
-        
-        <Label x:Name="JobError" Grid.Column="2" Grid.Row="5" Foreground="Red"/>
+
+        <Label x:Name="JobError" Content ="{Binding JobErrorText}" Visibility="{Binding JobErrorVisible}" Grid.Column="2" Grid.Row="5" Foreground="Red"/>
         
         <Label Content="Plat" Grid.Column="3" Grid.Row="4"
                HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="15"/>
-        <Label x:Name="SalaryError" Grid.Column="4" Grid.Row="5" Foreground="Red"/>
+        <Label x:Name="SalaryError" Content ="{Binding SalaryErrorText}" Visibility="{Binding SalaryErrorVisible}" Grid.Column="4" Grid.Row="5" Foreground="Red"/>
 
-        <TextBox x:Name="Name" Grid.Column ="2" Grid.Row="0"
+        <TextBox x:Name="Name"  Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.Column ="2" Grid.Row="0"
                  Margin="0,20,0,0" FontSize="28" VerticalAlignment="Bottom"
-                 LostFocus="Name_LostFocus"/>
-        <TextBox x:Name="Surname" Grid.Column ="4" Grid.Row="0"
+                 LostFocus="Name_LostFocus" TextChanged="Name_TextChanged"/>
+        <TextBox x:Name="Surname" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}" Grid.Column ="4" Grid.Row="0"
                  Margin="0,20,0,0" FontSize="28" VerticalAlignment="Bottom"
-                 LostFocus="Surname_LostFocus"/>
-        <TextBox x:Name="Year" Grid.Column ="2" Grid.Row="2"
+                 LostFocus="Surname_LostFocus" TextChanged="Surname_TextChanged"/>
+        <TextBox x:Name="Year" Text="{Binding Year, UpdateSourceTrigger=PropertyChanged}" Grid.Column ="2" Grid.Row="2"
                  Margin="0,20,0,0" FontSize="28" VerticalAlignment="Bottom"
-                 LostFocus="Year_LostFocus"/>
-        <ComboBox x:Name="Education" Grid.Column ="4" Grid.Row="2"
+                 LostFocus="Year_LostFocus" TextChanged="Year_TextChanged"/>
+        <ComboBox x:Name="Education"  Text="{Binding Education, UpdateSourceTrigger=PropertyChanged}" Grid.Column ="4" Grid.Row="2"
                   Margin="0,20,0,0" FontSize="28" VerticalAlignment="Bottom"
                   LostFocus="Education_LostFocus">
 
@@ -70,14 +70,14 @@
             <ComboBoxItem Content="Vysoká škola"/>
             <ComboBoxItem Content="Vysoká škola života"/>
         </ComboBox>
-        
 
-        <TextBox x:Name="Job" Grid.Column ="2" Grid.Row="4"
+
+        <TextBox x:Name="Job" Text="{Binding Job, UpdateSourceTrigger=PropertyChanged}" Grid.Column ="2" Grid.Row="4"
                  Margin="0,20,0,0" FontSize="28" VerticalAlignment="Bottom"
-                 LostFocus="Job_LostFocus"/>
-        <TextBox x:Name="Salary" Grid.Column ="4" Grid.Row="4"
+                 LostFocus="Job_LostFocus" TextChanged="Job_TextChanged"/>
+        <TextBox x:Name="Salary" Text="{Binding GrossSalary, UpdateSourceTrigger=PropertyChanged}" Grid.Column ="4" Grid.Row="4"
                  Margin="0,20,0,0" FontSize="28" VerticalAlignment="Bottom"
-                 LostFocus="Salary_LostFocus"/>
+                 LostFocus="Salary_LostFocus" TextChanged="Salary_TextChanged"/>
 
         <Button Content="Přidat!" Grid.Column="3" Grid.Row="6"
                  Click="Button_Click"/>
